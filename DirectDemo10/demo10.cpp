@@ -458,29 +458,29 @@ void Render(HWND hwnd)
 	g_pd3dDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL, D3DCOLOR_XRGB(0, 0, 0), 1.0f, 0);
 	g_pd3dDevice->BeginScene();
 	MatrixSetting();
-	RenderObject();
-	//D3DXMATRIX matWorld2,matRotate;//, matScale;
-	//D3DXMatrixTranslation(&matWorld2, 0.0f, 0.0f, 30.0f);
-	//const D3DXVECTOR3 vec(0.0f, 1.0f, 0.0f);
-	//D3DXMatrixRotationAxis(&matRotate, &vec, D3DX_PI / 4.0f);
-	//g_pd3dDevice->SetTransform(D3DTS_WORLD, &(matWorld2*matRotate));
-	//g_pd3dDevice->SetMaterial(&BoxMtrl);
-	//g_pd3dDevice->SetTexture(0, g_pTexture);
-	//g_pd3dDevice->SetStreamSource(0, g_pVertexBuffer, 0, sizeof(VERTEXPOSTEX));//把包含的几何体信息的顶点缓存和渲染流水线相关联
-	//g_pd3dDevice->SetFVF(D3DFVF_CUSTOMVERTEX);//指定我们使用的灵活顶点格式的宏名称
-	//g_pd3dDevice->SetIndices(g_pIndexBuffer);//设置索引缓存
-	//g_pd3dDevice->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, 8, 0, 12);//利用索引缓存配合顶点缓存绘制图形
+	//RenderObject();
+	D3DXMATRIX matWorld2,matRotate;//, matScale;
+	D3DXMatrixTranslation(&matWorld2, 0.0f, 0.0f, 30.0f);
+	const D3DXVECTOR3 vec(0.0f, 1.0f, 0.0f);
+	D3DXMatrixRotationAxis(&matRotate, &vec, D3DX_PI / 4.0f);
+	g_pd3dDevice->SetTransform(D3DTS_WORLD, &(matWorld2*matRotate));
+	g_pd3dDevice->SetMaterial(&BoxMtrl);
+	g_pd3dDevice->SetTexture(0, g_pTexture);
+	g_pd3dDevice->SetStreamSource(0, g_pVertexBuffer, 0, sizeof(VERTEXPOSTEX));//把包含的几何体信息的顶点缓存和渲染流水线相关联
+	g_pd3dDevice->SetFVF(D3DFVF_CUSTOMVERTEX);//指定我们使用的灵活顶点格式的宏名称
+	g_pd3dDevice->SetIndices(g_pIndexBuffer);//设置索引缓存
+	g_pd3dDevice->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, 8, 0, 12);//利用索引缓存配合顶点缓存绘制图形
 
-	//g_pd3dDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, true);
-	//g_pd3dDevice->SetMaterial(&TeaPotMtrl);
-	//g_pd3dDevice->SetTexture(0, 0);
-	//D3DXMATRIX matWorld, matScale;
-	//D3DXMatrixTranslation(&matWorld, 0.0f, 0.0f, 0.0f);
-	//D3DXMatrixScaling(&matScale, 10.0f, 10.0f, 10.0f);
-	//g_pd3dDevice->SetTransform(D3DTS_WORLD, &(matWorld*matScale));//设置模型的世界矩阵，为绘制做准备
-	//TeaPot->DrawSubset(0);
+	g_pd3dDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, true);
+	g_pd3dDevice->SetMaterial(&TeaPotMtrl);
+	g_pd3dDevice->SetTexture(0, 0);
+	D3DXMATRIX matWorld, matScale;
+	D3DXMatrixTranslation(&matWorld, 0.0f, 0.0f, 0.0f);
+	D3DXMatrixScaling(&matScale, 40.0f, 40.0f, 40.0f);
+	g_pd3dDevice->SetTransform(D3DTS_WORLD, &(matWorld*matScale));//设置模型的世界矩阵，为绘制做准备
+	TeaPot->DrawSubset(0);
 
-	//g_pd3dDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, false);
+	g_pd3dDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, false);
 	g_pd3dDevice->EndScene();
 	g_pd3dDevice->Present(NULL, NULL, NULL, NULL);
 }
